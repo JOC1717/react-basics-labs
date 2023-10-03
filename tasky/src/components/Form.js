@@ -2,28 +2,34 @@ import React from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+
+const pLevel = [1,2,3]
 
 const AddTaskForm = (props) => {
 
+ 
   return (
     <Box
-      components="form"
+      component="form"
       sx={{
         '& .MuiOutlinedInput-root': { m: 1, width: '30ch' },
       }}
       onSubmit={props.submit}
-      >
-        <div>
-          <TextField
-            required
-            id="outlined-required"
-            name="title"
-            label="Task Title"
-            InputLabelProps={{ shrink: true }}
-            onChange={(event) => props.chnage(event)}
-          />
-        </div>
-        <div>
+    >
+      <div>
+        <TextField
+          required
+          id="outlined-required"
+          name="title"
+          label="Task Title"
+          InputLabelProps={{ shrink: true }}
+          onChange={(event) => props.change(event)}
+        />
+      </div>
+      <div>
         <TextField
           required
           name="deadline"
@@ -44,8 +50,9 @@ const AddTaskForm = (props) => {
           onChange={(event) => props.change(event)}
         />
       </div>
+
       <div>
-        <Button 
+        <Button
           type="submit"
           variant="contained"
           color="primary"
@@ -58,7 +65,7 @@ const AddTaskForm = (props) => {
           Add Task
         </Button>
       </div>
-      </Box>
+    </Box>
   )
 };
 
