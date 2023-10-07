@@ -6,10 +6,22 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 
-const pLevel = [1,2,3]
-
 const AddTaskForm = (props) => {
 
+  const priorities = [
+    {
+      value: 'High',
+      label: 'High',
+    },
+    {
+      value: 'Medium',
+      label: 'Medium',
+    },
+    {
+      value: 'Low',
+      label: 'Low',
+    }
+  ];
  
   return (
     <Box
@@ -40,6 +52,24 @@ const AddTaskForm = (props) => {
         />
       </div>
       <div>
+      <TextField
+          name="priority"
+          type="priority"
+          select
+          required
+          label="Priority"
+          defaultValue="Low"
+          InputLabelProps={{ shrink: true }}
+          onChange={(event) => props.change(event)}
+        >
+          {priorities.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </div>
+      <div>
         <TextField
           name="description"
           id="outlined-multiline-static"
@@ -50,7 +80,6 @@ const AddTaskForm = (props) => {
           onChange={(event) => props.change(event)}
         />
       </div>
-
       <div>
         <Button
           type="submit"

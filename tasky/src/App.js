@@ -43,15 +43,18 @@ function App() {
 
     switch(event.target.name) {
       case "title":
+        console.log(event.target.value)
           form.title = event.target.value;
           break;
       case "description":
           form.description = event.target.value;
           break;
       case "deadline":
+        
           form.deadline = event.target.value;
           break;
       case "priority":
+        console.log(event.target.value)
         form.priority = event.target.value;
         break;
       default:
